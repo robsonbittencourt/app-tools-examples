@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import app.tools.examples.car.Car;
-import app.tools.examples.car.CarLister;
+import app.tools.examples.car.CarSearch;
 import app.tools.examples.exception.CarNotFoundException;
 
 @Path("/car")
@@ -21,7 +21,7 @@ public class CarRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/list")
 	public List<Car> listAll() {
-		return new CarLister().listAll();
+		return new CarSearch().listAll();
 	}
 
 	@GET
@@ -29,7 +29,7 @@ public class CarRest {
 	@Path("/search/{model}")
 	public Car listAll(@PathParam("model") String model) throws WebApplicationException {
 		try {
-			return new CarLister().search(model);
+			return new CarSearch().search(model);
 		} catch (CarNotFoundException e) {
 			throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
 					.entity(e.getMessage()).type(MediaType.APPLICATION_JSON).build());

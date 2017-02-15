@@ -5,7 +5,7 @@ import java.util.List;
 
 import app.tools.examples.exception.CarNotFoundException;
 
-public class CarLister {
+public class CarSearch {
 
 	public List<Car> listAll() {
 		List<Car> cars = new ArrayList<>();

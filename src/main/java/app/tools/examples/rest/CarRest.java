@@ -14,12 +14,12 @@ import app.tools.examples.car.Car;
 import app.tools.examples.car.CarSearch;
 import app.tools.examples.exception.CarNotFoundException;
 
-@Path("/car")
+@Path("/")
 public class CarRest {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/list")
+	@Path("/car")
 	public List<Car> listAll() {
 		return new CarSearch().listAll();
 	}
